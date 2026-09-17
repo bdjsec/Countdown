@@ -10,7 +10,7 @@
  * bug to hit, and the app is small enough that an instant swap costs nothing.
  */
 
-const CACHE = 'countdown-v1';
+const CACHE = 'countdown-v2';
 
 /* Relative paths, resolved against the worker's own scope, so this works
  * unchanged at example.github.io/Countdown/ and at a domain root. */
@@ -24,6 +24,12 @@ const SHELL = [
   './js/config.js',
   './js/settings.js',
   './manifest.webmanifest',
+  // The data files are network-first below, but they belong in the precache
+  // too: without them a board installed and then taken offline before its
+  // second visit would come up with no configuration at all.
+  './config.json',
+  './quotes.json',
+  './presets/us-federal.json',
   './icons/favicon.svg',
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',
