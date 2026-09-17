@@ -1,0 +1,28 @@
+{
+  "_comment": "Defaults for a fresh board. Anything saved in Settings overrides what's here, per browser. Treat this file as the template everyone starts from - if you put your own dates in it and the repository is public, you have published them.",
+
+  "title": "Countdown",
+  "tagline": "",
+  "timezone": "auto",
+
+  "target": {
+    "_comment": "Today doesn't count, the target does - so on the day itself the board reads zero.",
+    "date": "2027-01-01",
+    "label": "until"
+  },
+
+  "holidayPreset": "us-federal",
+  "daysOff": [],
+
+  "_counters_comment": "type is one of: working, calendar, weekday, next-date, next-range, date. tier is primary, secondary or minor, and picks the flap size. The vest and time-off counters ship empty so they're discoverable - fill them in from Settings, or delete them.",
+  "counters": [
+    { "id": "working",  "label": "Working Days",    "type": "working",    "tier": "primary"   },
+    { "id": "calendar", "label": "Calendar Days",   "type": "calendar",   "tier": "secondary" },
+    { "id": "mondays",  "label": "Mondays",         "type": "weekday",    "tier": "minor", "weekday": 1 },
+    { "id": "vest",     "label": "Until Next Vest", "type": "next-date",  "tier": "minor", "dates": [] },
+    { "id": "timeoff",  "label": "Until Time Off",  "type": "next-range", "tier": "minor", "ranges": [] }
+  ],
+
+  "showQuotes": true,
+  "customQuotes": []
+}

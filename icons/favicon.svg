@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- A single split-flap tile: dark case, hinge across the middle, amber digit. -->
+  <defs>
+    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#24262e"/>
+      <stop offset="100%" stop-color="#1c1e24"/>
+    </linearGradient>
+    <linearGradient id="bottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1e24"/>
+      <stop offset="100%" stop-color="#101216"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="url(#top)"/>
+  <path d="M2 32h60v20a10 10 0 0 1-10 10H12A10 10 0 0 1 2 52z" fill="url(#bottom)"/>
+
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="46" font-weight="700" fill="#d8a24a">0</text>
+
+  <!-- hinge sits above the glyph so it reads as a flap, not a letter -->
+  <rect x="2" y="31" width="60" height="2" fill="#0b0c0f" opacity="0.9"/>
+</svg>

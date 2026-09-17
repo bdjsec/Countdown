@@ -1,0 +1,4 @@
+# Editor and agent scratch - the app itself has no build step and no deps.
+.claude/
+.DS_Store
+node_modules/

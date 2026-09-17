@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Countdown</title>
+<meta name="description" content="A split-flap countdown board you can put on your phone's home screen.">
+
+<!-- Every path here is relative on purpose. Project Pages serve from
+     /<repo>/, and a leading slash is the usual reason a first deploy comes
+     up blank. -->
+<link rel="icon" href="./icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#0e0f12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Countdown">
+<link rel="stylesheet" href="./app.css">
+</head>
+<body>
+
+<button class="settings-open" id="settings-open" aria-label="Settings" title="Settings">&#9881;</button>
+
+<main class="board">
+  <header class="today">
+    <div class="today-date" id="today-date"></div>
+  </header>
+
+  <h1 class="title" id="title">Countdown</h1>
+
+  <figure class="quote" id="quote" hidden>
+    <blockquote id="quote-text"></blockquote>
+    <figcaption id="quote-source"></figcaption>
+  </figure>
+
+  <!-- Large and medium counters stack; the small ones sit in a row. -->
+  <div id="majors"></div>
+  <section class="minors" id="minors"></section>
+
+  <p class="detail" id="empty" hidden>no counters yet &middot; open settings to add one</p>
+
+  <div class="target-note">
+    <div class="target" id="target"></div>
+    <div class="detail" id="detail"></div>
+  </div>
+
+  <div class="tagline" id="tagline" hidden></div>
+</main>
+
+<div class="settings" id="settings" hidden role="dialog" aria-modal="true" aria-label="Settings">
+  <div class="settings-sheet">
+    <div class="settings-head">
+      <h2>Settings</h2>
+      <button class="btn btn-small" id="settings-close" type="button">Close</button>
+    </div>
+
+    <p class="settings-error" id="settings-error" hidden></p>
+
+    <fieldset>
+      <legend>Board</legend>
+      <div class="field">
+        <label for="f-title">Title</label>
+        <input type="text" id="f-title" placeholder="Countdown">
+      </div>
+      <div class="field">
+        <label for="f-tagline">Closing line</label>
+        <input type="text" id="f-tagline" placeholder="optional">
+        <p class="hint">Shown under a rule at the bottom. Leave it empty to drop it.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Target</legend>
+      <div class="field">
+        <label for="f-target-date">The day you're counting to</label>
+        <input type="date" id="f-target-date">
+        <p class="hint">Counted as the last day that matters: today doesn't count, the target does, so on the day itself the board reads zero.</p>
+      </div>
+      <div class="field">
+        <label for="f-target-label">Wording before the date</label>
+        <input type="text" id="f-target-label" placeholder="until">
+      </div>
+      <div class="field">
+        <label for="f-timezone">Time zone</label>
+        <select id="f-timezone"></select>
+        <p class="hint">The board turns over at midnight in this zone, wherever in the world you happen to open it.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Days off</legend>
+      <div class="field">
+        <label for="f-preset">Holiday calendar</label>
+        <select id="f-preset"></select>
+        <p class="hint">A starting point. Your own days below are added on top.</p>
+      </div>
+      <div class="field">
+        <label for="f-daysoff">Your own days off</label>
+        <textarea id="f-daysoff" spellcheck="false" placeholder="2026-12-24 Christmas Eve&#10;2026-12-07..2026-12-11 Trip"></textarea>
+        <p class="hint">One per line: a date, or <code>start..end</code> for a run of them, then an optional name. These come out of Working Days but not Calendar Days &mdash; those days still pass.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Counters</legend>
+      <div class="counter-rows" id="counter-rows"></div>
+      <p class="hint">The first two are usually Working Days and Calendar Days. Remove any you don't want.</p>
+      <button class="btn btn-small" id="add-counter" type="button">Add a counter</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Quotes</legend>
+      <label class="field-check">
+        <input type="checkbox" id="f-quotes"> Show a line under the title, changing daily
+      </label>
+      <div class="field" style="margin-top:0.9rem">
+        <label for="f-customquotes">Your own lines</label>
+        <textarea id="f-customquotes" spellcheck="false" placeholder="The quote goes here &mdash; Who said it"></textarea>
+        <p class="hint">One per line. Separate the line from its source with an em dash or <code>--</code>. These are added to the ones that ship with the app.</p>
+      </div>
+    </fieldset>
+
+    <div class="settings-actions">
+      <button class="btn btn-primary" id="settings-save" type="button">Save</button>
+      <span class="spacer"></span>
+      <button class="btn btn-small" id="settings-export" type="button">Export</button>
+      <button class="btn btn-small" id="settings-import" type="button">Import</button>
+      <button class="btn btn-small btn-danger" id="settings-reset" type="button">Reset</button>
+      <input type="file" id="settings-file" accept="application/json,.json" hidden>
+    </div>
+
+    <p class="settings-note" id="settings-note"></p>
+  </div>
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

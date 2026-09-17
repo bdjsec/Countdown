@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Countdown tests</title>
+<style>
+  body { font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 2rem; background: #0e0f12; color: #f2ece0; }
+  li { list-style: none; }
+  .ok::before { content: 'ok   '; color: #6fbf73; }
+  .fail { color: #ff8a80; }
+  .fail::before { content: 'FAIL '; }
+  .error { color: #8b8578; padding-left: 5ch; }
+  h1 { font-size: 1rem; font-weight: 700; }
+</style>
+<h1>Countdown tests</h1>
+<ul id="results"></ul>
+<h1 id="summary">running…</h1>
+<script type="module">
+  import './counters.test.js';
+  import { run } from './harness.js';
+
+  const { results, passed, failed } = run();
+  document.getElementById('results').innerHTML = results
+    .map((r) => r.ok
+      ? `<li class="ok">${r.name}</li>`
+      : `<li class="fail">${r.name}</li><li class="error">${r.error}</li>`)
+    .join('');
+  document.getElementById('summary').textContent = `${passed} passed, ${failed.length} failed`;
+  document.title = failed.length ? `FAIL (${failed.length})` : `ok (${passed})`;
+</script>

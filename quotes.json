@@ -1,0 +1,16 @@
+{
+  "_comment": "The line under the title. One per day, stable for the whole day so a refresh doesn't reshuffle it mid-read, turning over at midnight with the counters. The rotation walks a shuffled permutation rather than picking at random, so every line appears once before any repeats and none shows two days running. Add your own from Settings instead of editing this file - that way an update to the app doesn't overwrite them.",
+  "_attribution_note": "The deathbed line is most often credited to Paul Tsongas, who said a version of it in 1984 after a cancer diagnosis, but it has been attributed to others too. Treat it as commonly attributed rather than certain.",
+  "quotes": [
+    { "text": "Nobody on his deathbed ever said, 'I wish I had spent more time at the office.'", "source": "Paul Tsongas" },
+    { "text": "How we spend our days is, of course, how we spend our lives.", "source": "Annie Dillard" },
+    { "text": "It is not that we have a short time to live, but that we waste a lot of it.", "source": "Seneca" },
+    { "text": "While we are postponing, life speeds by.", "source": "Seneca" },
+    { "text": "The trouble with the rat race is that even if you win, you're still a rat.", "source": "Lily Tomlin" },
+    { "text": "Do not act as if thou wert going to live ten thousand years.", "source": "Marcus Aurelius" },
+    { "text": "It is not enough to be busy. So are the ants. The question is: what are we busy about?", "source": "Henry David Thoreau" },
+    { "text": "Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.", "source": "Ferris Bueller" },
+    { "text": "Time is the coin of your life. You spend it. Do not allow others to spend it for you.", "source": "Carl Sandburg" },
+    { "text": "Someday is not a day of the week.", "source": "Anonymous" }
+  ]
+}
